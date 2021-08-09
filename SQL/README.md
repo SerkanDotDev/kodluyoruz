@@ -106,6 +106,8 @@ SELECT * FROM film
  rental_rate = 2.99;
 ```
 
+---
+
 ## ÖDEV 4
 
 1. film tablosunda bulunan replacement_cost sütununda bulunan birbirinden farklı değerleri sıralayınız.
@@ -124,7 +126,10 @@ SELECT COUNT(DISTINCT replacement_cost) FROM film;
 
 ```sql
 SELECT COUNT(*) FROM film
- WHERE title LIKE 'T%' AND rating = 'G';
+ WHERE title 
+ LIKE 'T%'
+ AND
+ rating = 'G';
 ```
 
 4. country tablosunda bulunan ülke isimlerinden (country) kaç tanesi 5 karakterden oluşmaktadır?
@@ -140,3 +145,37 @@ SELECT COUNT(*) FROM country
 SELECT COUNT(*) FROM city 
  WHERE city ILIKE '%r';
 ```
+
+---
+
+## ÖDEV 5
+
+1. Film tablosunda bulunan ve film ismi (title) 'n' karakteri ile biten en uzun (length) 5 filmi sıralayınız.
+
+```sql
+SELECT * FROM film 
+ WHERE title
+ LIKE '%n'
+ ORDER BY length DESC
+ LIMIT 5;
+```
+
+2. Film tablosunda bulunan ve film ismi (title) 'n' karakteri ile biten en kısa (length) ikinci 5 filmi sıralayınız.
+
+```sql
+SELECT * FROM film
+ WHERE title
+ LIKE '%n'
+ ORDER BY length ASC
+ OFFSET 5
+ LIMIT 5;
+```
+
+3. Customer tablosunda bulunan last_name sütununa göre azalan yapılan sıralamada store_id 1 olmak koşuluyla ilk 4 veriyi sıralayınız.
+
+```sql
+SELECT * FROM customer
+ WHERE store_id =1
+ ORDER BY last_name DESC
+ LIMIT 4;
+````
