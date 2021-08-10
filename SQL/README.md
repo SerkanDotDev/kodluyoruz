@@ -178,7 +178,7 @@ SELECT * FROM customer
  WHERE store_id =1
  ORDER BY last_name DESC
  LIMIT 4;
-````
+```
 
 ---
 
@@ -210,3 +210,38 @@ SELECT MAX(length) FROM film
 SELECT COUNT (DISTINCT replacement_cost) FROM film
  WHERE length > 150;
 ```
+
+---
+
+## ÖDEV 7
+
+1. Film tablosunda bulunan filmleri rating değerlerine göre gruplayınız.
+
+```sql
+SELECT * FROM film
+ GROUP BY rating;
+```
+
+2. Film tablosunda bulunan filmleri replacement_cost sütununa göre grupladığımızda film sayısı 50 den fazla olan replacement_cost değerini ve karşılık gelen film sayısını sıralayınız.
+
+````sql
+SELECT replacement_cost,COUNT(*) FROM film
+ GROUP BY replacement_cost
+ HAVING COUNT(*)>50;
+````
+
+3. Customer tablosunda bulunan store_id değerlerine karşılık gelen müşteri sayılarını nelerdir?
+
+````sql
+SELECT store_id, COUNT(*) FROM customer 
+ GROUP BY store_id;
+````
+
+4. City tablosunda bulunan şehir verilerini country_id sütununa göre gruplandırdıktan sonra en fazla şehir sayısı barındıra country_id bilgisini ve şehir sayısını paylaşınız.
+
+````sql
+SELECT country_id, COUNT(*) FROM city
+ GROUP BY country_id
+ ORDER BY COUNT(*) DESC
+ LIMIT 1;
+````
