@@ -208,7 +208,8 @@ SELECT MAX(length) FROM film
 
 ```sql
 SELECT COUNT (DISTINCT replacement_cost) FROM film
- WHERE length > 150;
+ WHERE 
+ length > 150;
 ```
 
 ---
@@ -383,13 +384,44 @@ SELECT city, country FROM city
 
 ````sql
 SELECT payment_id, first_name, last_name FROM customer
- INNER JOIN payment ON customer.customer_id = payment.customer_id;
+ INNER JOIN payment 
+ ON customer.customer_id = payment.customer_id;
 ````
 
 3. Customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
 
 ````sql
 SELECT rental_id, first_name, last_name FROM customer
- INNER JOIN rental ON customer.customer_id = rental.customer_id;
+ INNER JOIN rental
+ ON customer.customer_id = rental.customer_id;
 ````
 
+---
+
+## ÖDEV 10
+
+1. City tablosu ile country tablosunda bulunan şehir (city) ve ülke (country) isimlerini birlikte görebileceğimiz LEFT JOIN sorgusunu yazınız.
+
+````sql
+SELECT city, country FROM city
+ LEFT JOIN country
+ ON city.city_id = country.country_id;
+````
+
+2. Customer tablosu ile payment tablosunda bulunan payment_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz RIGHT JOIN sorgusunu yazınız.
+
+````sql
+SELECT payment_id, first_name, last_name FROM customer
+ RIGHT JOIN payment
+ ON payment.customer_id = customer.customer_id;
+````
+
+3. Customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz FULL JOIN sorgusunu yazınız.
+
+````sql
+SELECT rental_id, first_name, last_name FROM customer
+ FULL JOIN rental
+ ON rental.customer_id = customer.customer_id;
+````
+
+---
