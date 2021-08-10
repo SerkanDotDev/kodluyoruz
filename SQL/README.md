@@ -320,50 +320,76 @@ insert into employee (id, name, birthday, email) values (50, 'Estrellita', '2019
 
 ````sql
 UPDATE employee
-SET name = 'Namık Kemal',
+ SET name = 'Namık Kemal',
  	birthday = '2000-01-09',
 	email = 'namık@kemal.com'
-WHERE id = 1;
+ WHERE id = 1;
 
-UPDATE employee
-SET id= 29,
+ UPDATE employee
+ SET id= 29,
 	birthday = '2000-08-22',
 	email = 'salih@amel.com'
-WHERE name = 'Ettie';
+ WHERE name = 'Ettie';
 
-UPDATE employee
-SET id = 10,
+ UPDATE employee
+ SET id = 10,
 	name = 'Alex de Souza',
 	email = 'kaptan@alex.com'
-WHERE birthday = '2017-06-16';
+ WHERE birthday = '2017-06-16';
 
-UPDATE employee
-SET id = 10,
+ UPDATE employee
+ SET id = 10,
 	name = 'Evon',
 	email = 'evon@answers.com'
-WHERE email = 'evongrollmann1d@answers.com';
+ WHERE email = 'evongrollmann1d@answers.com';
 
-UPDATE employee
-SET id = 1234,
+ UPDATE employee
+ SET id = 1234,
 	email = 'test@user.com'
-WHERE id = 22;
+ WHERE id = 22;
 ````
 
 4. Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
 
 ````sql
 DELETE FROM employee
-WHERE id = 1;
+ WHERE id = 1;
 
 DELETE FROM employee
-WHERE name = 'Blondell';
+ WHERE name = 'Blondell';
 
 DELETE FROM employee
-WHERE birthday = '2017-06-16';
+ WHERE birthday = '2017-06-16';
 
 DELETE FROM employee
-WHERE email = 'evongrollmann1d@answers.com';
+ WHERE email = 'evongrollmann1d@answers.com';
 
 DELETE FROM employee
-WHERE email = 'aishak16@state.tx.us';
+ WHERE email = 'aishak16@state.tx.us';
 ````
+
+---
+
+## ÖDEV 9
+
+1. City tablosu ile country tablosunda bulunan şehir (city) ve ülke (country) isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
+
+````sql
+SELECT city, country FROM city
+ INNER JOIN country ON city.country_id = country.country_id;
+````
+
+2.Customer tablosu ile payment tablosunda bulunan payment_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
+
+````sql
+SELECT payment_id, first_name, last_name FROM customer
+ INNER JOIN payment ON customer.customer_id = payment.customer_id;
+````
+
+3. Customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
+
+````sql
+SELECT rental_id, first_name, last_name FROM customer
+ INNER JOIN rental ON customer.customer_id = rental.customer_id;
+````
+
